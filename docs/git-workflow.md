@@ -4,6 +4,29 @@
 Quick reference for the Git commands commonly used in this project's development workflow.
 
 ===========================================================================================
+## Configure Automatic Upstream Branches
+
+Configure Git to automatically create a tracking relationship when pushing a new local branch for the first time:
+
+```bash
+git config --global push.autoSetupRemote true
+```
+
+This only needs to be configured once per development environment.
+
+Afterward, the first push of a new branch can use:
+
+```bash
+git push
+```
+
+instead of:
+
+```bash
+git push -u origin <branch-name>
+```
+
+===========================================================================================
 ## Start New Work
 
 Update `main`:
@@ -49,13 +72,31 @@ git diff --staged
 ===========================================================================================
 ## Commit Changes
 
-Stage specific files:
+### Stage Specific Files
+
+Stage selected files:
 
 ```bash
 git add <file>
 ```
 
-Commit staged changes:
+### Stage All Changes
+
+Stage all additions, modifications, and deletions in the repository:
+
+```bash
+git add -A
+```
+
+Review the staged changes before committing:
+
+```bash
+git status
+```
+
+### Commit Staged Changes
+
+Commit the staged changes:
 
 ```bash
 git commit -m "<commit message>"
@@ -68,21 +109,27 @@ git commit -m "Add skill confidence selection"
 ```
 
 ===========================================================================================
-## Push a New Branch
+## Push Changes
 
-First push:
-
-```bash
-git push -u origin <branch-name>
-```
-
-After the upstream branch is configured:
+If automatic upstream configuration has been enabled as described above, push the current branch with:
 
 ```bash
 git push
 ```
 
-Then open a Pull Request into `main` on GitHub.
+Otherwise, the first push of a new branch requires:
+
+```bash
+git push -u origin <branch-name>
+```
+
+Subsequent pushes can use:
+
+```bash
+git push
+```
+
+After pushing a branch containing completed work, open a Pull Request into `main` on GitHub.
 
 ===========================================================================================
 ## Update an Existing Branch
@@ -118,6 +165,24 @@ The remote branch can be deleted using GitHub's **Delete branch** button after t
 ===========================================================================================
 ## Useful Commands
 
+### Check Repository Status
+
+View the current branch and any staged, modified, or untracked files:
+
+```bash
+git status
+```
+
+### View Current Branch
+
+Display the name of the currently checked-out branch:
+
+```bash
+git branch --show-current
+```
+
+### View Branches
+
 View local branches:
 
 ```bash
@@ -130,22 +195,26 @@ View local and remote branches:
 git branch -a
 ```
 
-View recent commit history:
+### View Recent Commit History
+
+View the 10 most recent commits with shortened commit IDs and branch/tag references:
 
 ```bash
-git log --oneline --graph --decorate
+git log --oneline --decorate -10
 ```
 
-View configured remotes:
+View the 10 most recent commits as a branch graph:
+
+```bash
+git log --oneline --graph --decorate -10
+```
+
+### View Remote Configuration
+
+View the repository's configured remote URLs:
 
 ```bash
 git remote -v
-```
-
-View the current branch:
-
-```bash
-git branch --show-current
 ```
 
 ===========================================================================================
