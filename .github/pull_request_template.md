@@ -1,10 +1,10 @@
-## Related Issue
+## Related Issue Number
 
-Closes issue #
+Resolves # <insert issue number>
 
 ## Summary
 
-Briefly describe what this pull request changes and why.
+<Briefly describe what this pull request changes and why>
 
 ## Changes
 
@@ -13,7 +13,7 @@ Briefly describe what this pull request changes and why.
 
 ## Testing
 
-Describe if/how the changes were tested.
+<Describe if/how the changes were tested>
 
 ## Checklist
 
