@@ -1,6 +1,6 @@
 ---
-name: Feature
-about: Add or improve project functionality
+name: Task
+about: Complete project, technical, or maintenance work
 title: ""
 labels: ""
 assignees: ""
